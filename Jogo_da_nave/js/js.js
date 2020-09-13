@@ -1,4 +1,6 @@
-   
+EN
+var record = null;
+
 function start() { // Inicio da função start()
 
     $("#inicio").hide(); // a <div id = "inicio "">	será ocultada quando for clicada 
@@ -272,7 +274,8 @@ function start() { // Inicio da função start()
        //Inimigo2 com o amigo
 		
        if (colisao6.length>0) {
-	   perdidos++;
+       perdidos++;
+      energiaAtual--;
        amigoX = parseInt($("#amigo").css("left"));
        amigoY = parseInt($("#amigo").css("top"));
         explosao3(amigoX,amigoY);
@@ -444,7 +447,12 @@ function start() { // Inicio da função start()
         
         $("#fundoGame").append("<div id='fim'></div>");
         
-        $("#fim").html("<h1> Game Over </h1><p>Sua pontuação foi: " + pontos + "</p>" + "<div id='reinicia' onClick=reiniciaJogo()><h3>Jogar Novamente</h3></div>");
+
+        if ( pontos > record) {
+            record = pontos ; 
+        }
+        
+        $("#fim").html("<h1> Game Over </h1><p>Sua pontuação foi: " + pontos + "</p> <p> SEU RECORD: " + record+ "<div id='reinicia' onClick=reiniciaJogo()><h3>Jogar Novamente</h3></div>");
         } // Fim da função gameOver();
 
 
