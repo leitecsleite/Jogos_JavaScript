@@ -1,4 +1,4 @@
-EN
+
 var record = null;
 
 function start() { // Inicio da função start()
